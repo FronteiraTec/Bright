@@ -3,7 +3,7 @@
 Um jogo plataforma 2D com temática souls-like.<br>
 
 #### Setup
-		Unity Version: 2019.3.7f1
+	Unity Version: 2019.3.7f1
 <br>
 
 ### Contribua com o nosso projeto

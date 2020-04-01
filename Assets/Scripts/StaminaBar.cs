@@ -17,13 +17,7 @@ public class StaminaBar : MonoBehaviour
     // processo de regeneracao
     private Coroutine regen;
 
-    // public static StaminaBar instance;
-    // private void Awake()
-    // {
-    //     instance = this;
-    // }
-
-    void Start()
+    private void Start()
     {
         currentStamina = maxStamina; // inicializa a barra com a stamina cheia
         staminaBar.maxValue = maxStamina; // configura o valor maximo da barra

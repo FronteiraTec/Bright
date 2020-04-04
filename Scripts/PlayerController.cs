@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
         // recebe do input do jogador e calcula se o personagem esta correndo ou andando
         horizontalMove = Input.GetAxisRaw("Horizontal") * velocity;
 
-
+        if (Input.GetButton("Space") & Input.GetAxisRaw("Horizontal") != 0 & staminaBar.currentStamina > 5)
         {
             isRunning = true;
             staminaBar.UseStamina(0.1f);

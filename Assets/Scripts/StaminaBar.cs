@@ -7,13 +7,14 @@ public class StaminaBar : MonoBehaviour
 {
     public Slider staminaBar;
 
+    public float currentStamina;
+
     [SerializeField] private int maxStamina = 100;
     [SerializeField] private float regenDelay = 1f;
     [SerializeField] private float regenAmount = .5f;
 
     // micro delay no recharge rate
     private WaitForSeconds regenTick = new WaitForSeconds(.05f);
-    private float currentStamina;
     // processo de regeneracao
     private Coroutine regen;
 

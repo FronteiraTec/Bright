@@ -7,14 +7,13 @@ public class StaminaBar : MonoBehaviour
 {
     public Slider staminaBar;
 
-    public float currentStamina;
-
     [SerializeField] private int maxStamina = 100;
     [SerializeField] private float regenDelay = 1f;
     [SerializeField] private float regenAmount = .5f;
 
     // micro delay no recharge rate
     private WaitForSeconds regenTick = new WaitForSeconds(.05f);
+    private float currentStamina;
     // processo de regeneracao
     private Coroutine regen;
 
@@ -30,7 +29,7 @@ public class StaminaBar : MonoBehaviour
     {
         // Metodo chamado toda vez que uma açao qualquer necessita utilizacao de stamina
         // Verifica se tem stamina suficiente para realizar a acao
-        if(currentStamina - amount >= 0)
+        if(GetStamina() >= amount)
         {
             currentStamina -= amount; // reduz a qtd usada da stamina atual
             staminaBar.value = currentStamina;  // atualiza o valor na barra
@@ -48,6 +47,10 @@ public class StaminaBar : MonoBehaviour
         {
             Debug.Log("Not enough stamina");
         }
+    }
+    public double GetStamina()
+    {
+      return staminaBar.value;
     }
 
     private IEnumerator RegenStamina()

@@ -1922,7 +1922,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -31.132683, y: 6.8635225, z: -20}
+  m_LocalPosition: {x: 59.8, y: 5.1499996, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4244,7 +4244,7 @@ RectTransform:
   m_GameObject: {fileID: 1165757226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 12497289}
   - {fileID: 1242495197}
@@ -4253,7 +4253,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -178, y: 180}
+  m_AnchoredPosition: {x: -348, y: 220}
   m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1165757228
@@ -4320,7 +4320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   staminaBar: {fileID: 1165757228}
   maxStamina: 100
-  regenDelay: 1
+  regenDelay: 0.5
   regenAmount: 1
 --- !u!4 &1225637954 stripped
 Transform:
@@ -5570,12 +5570,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 5
   runSpeed: 10
-  runStaminaCost: 0.4
+  runStaminaCost: 0.3
   jumpForce: 80
-  jumpStaminaCost: 15
-  jumpStaminaFactor: 0.5
+  jumpStaminaCost: 8
+  jumpStaminaFactor: 0.1
   onGround: 1
   rayLenght: 1.94
+  colliderOffset: {x: 0.5, y: 0, z: 0}
   fallMultiplier: 4
   linearDrag: 2
   gravity: 3
@@ -5596,7 +5597,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426733420}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -43.25, y: 4.6, z: -10}
+  m_LocalPosition: {x: 59.8, y: 2.9, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7460,7 +7461,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1875401497}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -43.25, y: 6.8499994, z: -20}
+  m_LocalPosition: {x: 59.8, y: 5.1499996, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1285025735}

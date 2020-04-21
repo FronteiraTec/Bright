@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
   [Header("Collision")]
   [SerializeField] private bool onGround = false;
   [SerializeField] private float rayLenght = 1f;
+  [SerializeField] private Vector3 colliderOffset;
   
   [Header("Physics")]
   [SerializeField] private float fallMultiplier = 4f;
@@ -43,21 +44,22 @@ public class PlayerController : MonoBehaviour
   // Update is called once per frame
   private void Update()
   {
-    onGround = Physics2D.Raycast(transform.position, Vector2.down, rayLenght, groundLayer);
+    onGround = Physics2D.Raycast(transform.position + colliderOffset, Vector2.down, rayLenght, groundLayer) || Physics2D.Raycast(transform.position - colliderOffset, Vector2.down, rayLenght, groundLayer);
     direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+    if(Input.GetButton("Jump"))
+    {
+      Jump();
+    }
     AnimationState();
     anim.SetInteger("state", (int)state);
   }
   
   private void FixedUpdate()
   {
-    if(Input.GetButton("Jump"))
-    {
-      Jump();
-    }
     Movement();
     // Reload the Scene for testing purposes
-    if (Input.GetKeyDown(KeyCode.R) || Input.GetKey(KeyCode.JoystickButton6))
+    if (Input.GetKeyDown(KeyCode.R))
     {
       SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -108,7 +110,7 @@ public class PlayerController : MonoBehaviour
     }
     else if((Input.GetButton("Jump")) && !onGround && (rb.velocity.y > .1f))
     {
-      if(staminaBar.GetStamina() > (jumpStaminaFactor))
+      if(staminaBar.GetStamina() > jumpStaminaFactor)
       {
         staminaBar.UseStamina(jumpStaminaFactor);
       }
@@ -117,11 +119,13 @@ public class PlayerController : MonoBehaviour
 
   private void Movement()
   {
-    if(Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.JoystickButton1))
+    if(Input.GetKey(KeyCode.LeftShift))
     {
       if(direction.x != 0)
       {
-        if(staminaBar.GetStamina() > runStaminaCost){
+        if(staminaBar.GetStamina() > runStaminaCost)
+        {
+          state = State.running;
           staminaBar.UseStamina(runStaminaCost);
           rb.velocity = new Vector2(direction.x * runSpeed, rb.velocity.y);
         }
@@ -129,6 +133,7 @@ public class PlayerController : MonoBehaviour
     }
     else 
     {
+      // state = State.running;
       rb.velocity = new Vector2(direction.x * walkSpeed, rb.velocity.y);
     }
 
@@ -152,6 +157,10 @@ public class PlayerController : MonoBehaviour
       {
         state = State.falling;
       }
+    }
+    else if((rb.velocity.y < 0f) && (state != State.jumping))
+    {
+        state = State.falling;
     }
     else if(state == State.falling)
     {
@@ -178,7 +187,8 @@ public class PlayerController : MonoBehaviour
   private void OnDrawGizmos()
   {
     Gizmos.color = Color.green;
-    Gizmos.DrawLine(transform.position, transform.position + Vector3.down * rayLenght);
+    Gizmos.DrawLine(transform.position + colliderOffset, transform.position + colliderOffset + Vector3.down * rayLenght);
+    Gizmos.DrawLine(transform.position - colliderOffset, transform.position - colliderOffset + Vector3.down * rayLenght);
   }
 }
 

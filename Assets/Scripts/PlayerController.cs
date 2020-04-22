@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour
   [SerializeField] private Collider2D coll;
   [SerializeField] private Rigidbody2D rb;
   [SerializeField] private Animator anim;
+  [SerializeField] private ParticleSystem dust;
+  
 
   [Header("Info")]
   public Vector2 direction;
@@ -100,6 +102,7 @@ public class PlayerController : MonoBehaviour
   {
     if((Input.GetButtonDown("Jump")) && onGround)
       {
+      CreateDust();
       rb.velocity = new Vector2(rb.velocity.x, 0);
       if(staminaBar.GetStamina() > jumpStaminaCost)
       {
@@ -128,6 +131,7 @@ public class PlayerController : MonoBehaviour
           state = State.running;
           staminaBar.UseStamina(runStaminaCost);
           rb.velocity = new Vector2(direction.x * runSpeed, rb.velocity.y);
+          // CreateDust();
         }
       }
     }
@@ -184,6 +188,10 @@ public class PlayerController : MonoBehaviour
     }
   }
   
+  private void CreateDust()
+  {
+    dust.Play();
+  }
   private void OnDrawGizmos()
   {
     Gizmos.color = Color.green;

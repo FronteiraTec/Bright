@@ -5,31 +5,32 @@ using UnityEngine.UI;
 
 public class StaminaBar : MonoBehaviour
 {
-    public Slider staminaBar;
-
+    [SerializeField] private Slider staminaBar;
     [SerializeField] private int maxStamina = 100;
-    [SerializeField] private float regenDelay = 1f;
-    [SerializeField] private float regenAmount = .5f;
+    [Range(0f, 2f)] [SerializeField] private float regenDelay = 0.5f;
+    [Range(0f, 4f)] [SerializeField] private float regenAmount = 1f;
 
     // micro delay no recharge rate
     private WaitForSeconds regenTick = new WaitForSeconds(.05f);
     private float currentStamina;
+    
     // processo de regeneracao
     private Coroutine regen;
-
+    public bool staminaEsgotada;
+    
     private void Start()
     {
         currentStamina = maxStamina; // inicializa a barra com a stamina cheia
         staminaBar.maxValue = maxStamina; // configura o valor maximo da barra
-        staminaBar.value = maxStamina;  // atualiza o preenchimento da barra
+        staminaBar.value = maxStamina;  // atualiza o preenchimento da barra\
+        staminaEsgotada = false;
     }
-
 
     public void UseStamina(float amount)
     {
         // Metodo chamado toda vez que uma açao qualquer necessita utilizacao de stamina
         // Verifica se tem stamina suficiente para realizar a acao
-        if(GetStamina() >= amount)
+        if(true && EnoughStamina())
         {
             currentStamina -= amount; // reduz a qtd usada da stamina atual
             staminaBar.value = currentStamina;  // atualiza o valor na barra
@@ -43,15 +44,38 @@ public class StaminaBar : MonoBehaviour
             // Chama o metodo de regeneracao
             regen = StartCoroutine(RegenStamina());
         }
-        else
-        {
-            Debug.Log("Not enough stamina");
-        }
     }
-    public double GetStamina()
+    
+    public bool EnoughStamina()
     {
-      return staminaBar.value;
+      if(staminaBar.value > 1)
+      {
+        return true;
+      }
+      return false;
     }
+    
+    public void Info()
+    {
+      Debug.Log(("StaminaBar Info = ",maxStamina, regenDelay, regenAmount));
+    }
+    // public double GetStamina()
+    // {
+    //   if(staminaEsgotada == true)
+    //   {
+    //     return -1f;
+    //   }
+    //   else if(staminaBar.value < 0.1f)
+    //   {
+    //     staminaEsgotada = true;
+    //     Debug.Log("ESGOTOU");
+    //     return -1f;
+    //   }
+    //   else
+    //   {
+    //     return staminaBar.value;
+    //   }
+    // }
 
     private IEnumerator RegenStamina()
     {
@@ -64,6 +88,8 @@ public class StaminaBar : MonoBehaviour
             // micro delay no recharge
             yield return regenTick; //se nao iria regenerar 'instantaneamente'
         }
+        Debug.Log("CHEIA");
+        staminaEsgotada = false;
         regen = null;
     }
 }

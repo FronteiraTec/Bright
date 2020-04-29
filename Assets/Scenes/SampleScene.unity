@@ -6676,7 +6676,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29.498466, y: -21.02225, z: -20}
+  m_LocalPosition: {x: -29.233376, y: -21.02141, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10473,10 +10473,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d75a92a8cd6e84f9773d37904c884a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxComboDelay: 0.9
+  maxComboDelay: 0.8
   lastClickedTime: 0
+  numberOfClicks: 0
   motionPerAttack: 1.2
-  WeakAttackStaminaCost: 10
+  WeakAttackStaminaCost: 30
 --- !u!114 &1426733428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10524,6 +10525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29767bf64f540c04c9ef7f749ae962fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
 --- !u!114 &1426733431
 MonoBehaviour:
   m_ObjectHideFlags: 0

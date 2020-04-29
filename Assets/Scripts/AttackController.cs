@@ -8,7 +8,7 @@ public class AttackController : MonoBehaviour
    // how much room until next click to continue combo
   [Range(0f, 2f)] [SerializeField] private float maxComboDelay = 0.5f;
   [SerializeField] private float lastClickedTime = 0;
-  private int numberOfClicks = 0;
+  [SerializeField] private int numberOfClicks = 0;
   
   [Header("Weak Attack Parameters")]
   [Range(0f, 10f)] [SerializeField] private float motionPerAttack = 1f;
@@ -18,12 +18,14 @@ public class AttackController : MonoBehaviour
   private Animator anim;
   private Rigidbody2D rb;
   private StaminaBar staminaBar;
+  private FiniteStateMachine fsm;
   
   private void Start()
   {
     anim = GetComponent<Animator>();
     rb = GetComponent<Rigidbody2D>();
     staminaBar = GetComponent<StaminaBar>();
+    fsm = GetComponent<FiniteStateMachine>();
   }
 
 
@@ -33,6 +35,8 @@ public class AttackController : MonoBehaviour
     if(Time.time - lastClickedTime > maxComboDelay)
     {
       numberOfClicks = 0;
+      fsm.state = FiniteStateMachine.State.idle;
+      // fsm.state = FiniteStateMachine.State.attacking;
     }
     
     // key listener to mouse1/fireButton/MouseLeftClick as you wanna call it
@@ -57,11 +61,9 @@ public class AttackController : MonoBehaviour
   // responsible for moving the character throughout the attack animation
   public void MoveCharacter()
   {
-    // Check if there are enough stamina to realize the action (0=able, 1=unable)
-    if(staminaUse(WeakAttackStaminaCost) == 0)
-    {
-      rb.position = new Vector2(rb.position.x + Mathf.Sign(transform.localScale.x) * motionPerAttack, rb.position.y);
-    }
+    staminaBar.UseStamina(WeakAttackStaminaCost);
+    rb.position = new Vector2(rb.position.x + Mathf.Sign(transform.localScale.x) * motionPerAttack, rb.position.y);
+    rb.velocity = new Vector2(0, 0);
   }
   
   // Used to control if next and/or which animation will be played
@@ -69,30 +71,41 @@ public class AttackController : MonoBehaviour
   {
     if(staminaBar.EnoughStamina())
     {
+      rb.velocity = new Vector2(0, 0);
+      fsm.state = FiniteStateMachine.State.attacking;
       lastClickedTime = Time.time; // get current time
       numberOfClicks++; // increase clicks counter
-      
-      // Restrain number of clicks within range(0,2)
-      if(numberOfClicks == 1)
-      {
-        anim.SetBool("Attack1", true);
-      }
-      if(numberOfClicks % 2 == 0)
-      {
-        numberOfClicks = 2;
-      }
-      else if(numberOfClicks % 2 == 1)
-      {
-        numberOfClicks = 1;
-      }
-      else
-      {
-        numberOfClicks = 0;
-      }
+      ComboVerification();
     }
     else
     {
       numberOfClicks = 0;
+      fsm.state = FiniteStateMachine.State.idle;
+    }
+  }
+  
+  private void ComboVerification()
+  {
+    numberOfClicks = 2 - (numberOfClicks % 2);
+    
+    switch (numberOfClicks)
+    {
+      case 0:
+        anim.SetBool("Attack1", false);
+        anim.SetBool("Attack2", false);
+        numberOfClicks = 0;
+        fsm.state = FiniteStateMachine.State.idle;
+        return;
+      case 1:
+        anim.SetBool("Attack1", true);
+        return;
+        
+      case 2:
+        anim.SetBool("Attack2", true);
+        return;
+        
+      default:
+        return;
     }
   }
   
@@ -103,12 +116,14 @@ public class AttackController : MonoBehaviour
   {
     if(numberOfClicks == 2)
     {
+      anim.SetBool("Attack1", true);
       anim.SetBool("Attack2", true);
     }
     else
     {
       anim.SetBool("Attack1", false);
       numberOfClicks = 0;
+      fsm.state = FiniteStateMachine.State.idle;
     }
   }
   
@@ -125,6 +140,7 @@ public class AttackController : MonoBehaviour
       anim.SetBool("Attack1", false);
       anim.SetBool("Attack2", false);
       numberOfClicks = 0;
+      fsm.state = FiniteStateMachine.State.idle;
     }
   }
 }

@@ -13,6 +13,7 @@ public class MovementController : MonoBehaviour
   private Rigidbody2D rb;
   private CollisionRay ray;
   private Vector2 direction;
+  private FiniteStateMachine fsm;
   private bool facingRight = true;
   private bool onGround;
   
@@ -21,6 +22,7 @@ public class MovementController : MonoBehaviour
     staminaBar = GetComponent<StaminaBar>();
     rb = GetComponent<Rigidbody2D>();
     ray = GetComponent<CollisionRay>();    
+    fsm = GetComponent<FiniteStateMachine>();
   }
 
   private void Update()
@@ -30,7 +32,10 @@ public class MovementController : MonoBehaviour
   }
   private void FixedUpdate()
   {
-    Move();
+    if(fsm.state != FiniteStateMachine.State.attacking)
+    {
+      Move();
+    }
   }
   
   private void Move()

@@ -10,8 +10,8 @@ public class FiniteStateMachine : MonoBehaviour
     private CollisionRay ray;
     private bool onGround;
 
-    private enum State {idle, walking, running, jumping, falling};
-    private State state = State.idle;
+    public enum State {idle, walking, running, jumping, falling, attacking};
+    public State state = State.idle;
     
     private void Start()
     {
@@ -40,7 +40,10 @@ public class FiniteStateMachine : MonoBehaviour
       {
         state = State.falling;
       }
-  
+      else if(state == State.attacking)
+      {
+        rb.velocity = new Vector2(0, 0);
+      }
       else if(Mathf.Abs(rb.velocity.x) > .5f && onGround)
       {
         if(Mathf.Abs(rb.velocity.x) <= movement.walkSpeed)

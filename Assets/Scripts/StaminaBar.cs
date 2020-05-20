@@ -59,23 +59,6 @@ public class StaminaBar : MonoBehaviour
     {
       Debug.Log(("StaminaBar Info = ",maxStamina, regenDelay, regenAmount));
     }
-    // public double GetStamina()
-    // {
-    //   if(staminaEsgotada == true)
-    //   {
-    //     return -1f;
-    //   }
-    //   else if(staminaBar.value < 0.1f)
-    //   {
-    //     staminaEsgotada = true;
-    //     Debug.Log("ESGOTOU");
-    //     return -1f;
-    //   }
-    //   else
-    //   {
-    //     return staminaBar.value;
-    //   }
-    // }
 
     private IEnumerator RegenStamina()
     {
@@ -88,7 +71,7 @@ public class StaminaBar : MonoBehaviour
             // micro delay no recharge
             yield return regenTick; //se nao iria regenerar 'instantaneamente'
         }
-        Debug.Log("CHEIA");
+        // Debug.Log("CHEIA");
         staminaEsgotada = false;
         regen = null;
     }

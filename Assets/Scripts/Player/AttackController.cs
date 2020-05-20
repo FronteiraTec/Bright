@@ -15,17 +15,17 @@ public class AttackController : MonoBehaviour
   [Range(0f, 100f)] [SerializeField] private float WeakAttackStaminaCost = 0;
   
   // [Header("Components")]
-  private Animator anim;
-  private Rigidbody2D rb;
-  private StaminaBar staminaBar;
   private FiniteStateMachine fsm;
+  private StaminaBar staminaBar;
+  private Rigidbody2D rb;
+  private Animator anim;
   
   private void Start()
   {
-    anim = GetComponent<Animator>();
-    rb = GetComponent<Rigidbody2D>();
-    staminaBar = GetComponent<StaminaBar>();
     fsm = GetComponent<FiniteStateMachine>();
+    staminaBar = GetComponent<StaminaBar>();
+    rb = GetComponent<Rigidbody2D>();
+    anim = GetComponent<Animator>();
   }
 
 
@@ -35,10 +35,7 @@ public class AttackController : MonoBehaviour
     if(Time.time - lastClickedTime > maxComboDelay)
     {
       numberOfClicks = 0;
-      // fsm.state = FiniteStateMachine.State.idle;
-      // fsm.state = FiniteStateMachine.State.attacking;
     }
-    
     // key listener to mouse1/fireButton/MouseLeftClick as you wanna call it
     if(Input.GetMouseButtonDown(0))
     {
@@ -80,7 +77,6 @@ public class AttackController : MonoBehaviour
     else
     {
       numberOfClicks = 0;
-      // fsm.state = FiniteStateMachine.State.idle;
     }
   }
   
@@ -94,7 +90,6 @@ public class AttackController : MonoBehaviour
         anim.SetBool("Attack1", false);
         anim.SetBool("Attack2", false);
         numberOfClicks = 0;
-        // fsm.state = FiniteStateMachine.State.idle;
         return;
       case 1:
         anim.SetBool("Attack1", true);

@@ -6346,7 +6346,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
-  m_ScreenMatchMode: 2
+  m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -6364,7 +6364,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
-  m_PixelPerfect: 1
+  m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -6651,7 +6651,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 12
+  orthographic size: 13
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -6675,7 +6675,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 90.21664, y: 9.455516, z: -20}
+  m_LocalPosition: {x: 75.8, y: 5.1499996, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9006,8 +9006,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -575, y: 450}
-  m_SizeDelta: {x: 500, y: 60}
+  m_AnchoredPosition: {x: -550, y: 400}
+  m_SizeDelta: {x: 600, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1165757228
 MonoBehaviour:
@@ -9068,7 +9068,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1165757226}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95bc6beb61ee0ec4cad5bf09ce0846f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 34639f83248e1ae47ab6d1e15d7bb313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   staminaBar: {fileID: 1165757228}
@@ -10302,14 +10302,15 @@ GameObject:
   - component: {fileID: 1426733423}
   - component: {fileID: 1426733426}
   - component: {fileID: 1426733425}
-  - component: {fileID: 1426733421}
-  - component: {fileID: 1426733427}
-  - component: {fileID: 1426733428}
-  - component: {fileID: 1426733429}
-  - component: {fileID: 1426733430}
-  - component: {fileID: 1426733431}
   - component: {fileID: 1426733432}
+  - component: {fileID: 1426733431}
+  - component: {fileID: 1426733430}
+  - component: {fileID: 1426733429}
+  - component: {fileID: 1426733428}
+  - component: {fileID: 1426733427}
+  - component: {fileID: 1426733421}
   - component: {fileID: 1426733433}
+  - component: {fileID: 1426733434}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -10337,7 +10338,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426733420}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 91.3, y: 7.9, z: -10}
+  m_LocalPosition: {x: 75.8, y: 2.9, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 315230454}
@@ -10422,11 +10423,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 1426733420}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 45ed6197a5ad2c842ad7ff4f1f0d439e, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0066743493, y: -0.17331564}
+  m_Offset: {x: 0.01966095, y: -0.17331564}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -10437,7 +10438,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0687577, y: 3.4773152}
+  m_Size: {x: 1.3543854, y: 3.4773152}
   m_EdgeRadius: 0
 --- !u!50 &1426733426
 Rigidbody2D:
@@ -10451,11 +10452,11 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 3.7164073
+  m_Mass: 4.709625
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
-  m_Material: {fileID: 6200000, guid: 6dbb09862a4f98844981fd357533e90c, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -10469,14 +10470,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1426733420}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0d75a92a8cd6e84f9773d37904c884a, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a3d56fb5121aec46b8b5e8071f61129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxComboDelay: 0.8
-  lastClickedTime: 0
-  numberOfClicks: 0
-  motionPerAttack: 1.2
-  WeakAttackStaminaCost: 15
+  walkSpeed: 5
+  runSpeed: 12
+  runStaminaCost: 0.4
 --- !u!114 &1426733428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10486,15 +10485,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 1426733420}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95bc6beb61ee0ec4cad5bf09ce0846f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a7459582acbd694ca1ac2c13bac68a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  staminaBar: {fileID: 1165757228}
-  maxStamina: 100
-  regenDelay: 0.8
-  regenAmount: 1.5
-  staminaEsgotada: 0
+  fallMultiplier: 4
+  linearDrag: 7
+  gravity: 3
 --- !u!114 &1426733429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426733420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12936d8a08c926244bed02d9e6e09a4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 100
+  jumpStaminaCost: 5
+  jumpStaminaFactor: 0.1
+  dust: {fileID: 315230456}
+--- !u!114 &1426733430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426733420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29767bf64f540c04c9ef7f749ae962fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highSpeed: 20
+  mortalSpeed: 30
+  landStyle: 0
+  state: 9
+--- !u!114 &1426733431
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10512,37 +10541,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   onGround: 0
---- !u!114 &1426733430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1426733420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29767bf64f540c04c9ef7f749ae962fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highSpeed: 20
-  mortalSpeed: 30
-  landStyle: 0
-  state: 0
---- !u!114 &1426733431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1426733420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a7459582acbd694ca1ac2c13bac68a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallMultiplier: 4
-  linearDrag: 7
-  gravity: 3
 --- !u!114 &1426733432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10552,13 +10550,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1426733420}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12936d8a08c926244bed02d9e6e09a4d, type: 3}
+  m_Script: {fileID: 11500000, guid: d0d75a92a8cd6e84f9773d37904c884a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 100
-  jumpStaminaCost: 5
-  jumpStaminaFactor: 0.2
-  dust: {fileID: 315230456}
+  maxComboDelay: 0.8
+  lastClickedTime: 0
+  numberOfClicks: 0
+  motionPerAttack: 1.2
+  WeakAttackStaminaCost: 15
 --- !u!114 &1426733433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10568,12 +10567,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 1426733420}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a3d56fb5121aec46b8b5e8071f61129, type: 3}
+  m_Script: {fileID: 11500000, guid: 34639f83248e1ae47ab6d1e15d7bb313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 5
-  runSpeed: 12
-  runStaminaCost: 0.4
+  staminaBar: {fileID: 1165757228}
+  maxStamina: 100
+  regenDelay: 0.5
+  regenAmount: 1
+  staminaEsgotada: 0
+--- !u!114 &1426733434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426733420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c831a3154c957e140b7a187bd32e6299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highSpeed: 20
+  mortalSpeed: 30
 --- !u!1001 &1444370034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12210,7 +12225,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1426733422}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 12
+    OrthographicSize: 13
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -12231,7 +12246,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1875401497}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 91.3, y: 10.15, z: -20}
+  m_LocalPosition: {x: 75.8, y: 5.1499996, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1285025735}

@@ -48,11 +48,12 @@ public class StaminaBar : MonoBehaviour
     
     public bool EnoughStamina()
     {
-      if(staminaBar.value > 1)
-      {
-        return true;
-      }
-      return false;
+      // if(staminaBar.value > 1)
+      // {
+      //   return true;
+      // }
+      // return false;
+      return true;
     }
     
     public void Info()

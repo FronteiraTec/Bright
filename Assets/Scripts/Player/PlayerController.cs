@@ -13,6 +13,12 @@ public class PlayerController : MonoBehaviour
     {
       SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+    
+    // Return to the main menu
+    else if (Input.GetKeyDown(KeyCode.Escape))
+    {
+      SceneManager.LoadScene(0);
+    }
   }
 }
 

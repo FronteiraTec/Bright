@@ -76,6 +76,12 @@ public class FiniteStateMachine : MonoBehaviour
       {
         rb.velocity = new Vector2(0, 0);
       }
+      // rolling
+      else if(state == State.rolling)
+      {
+        // rb.velocity = new Vector2(0, 0);
+        Debug.Log("FSM Roll");
+      }
       else if(((int)rb.velocity.x != 0) && onGround)
       {
         if(Mathf.Abs(rb.velocity.x) <= movement.walkSpeed)

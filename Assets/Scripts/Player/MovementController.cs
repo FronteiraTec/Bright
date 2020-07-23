@@ -32,7 +32,7 @@ public class MovementController : MonoBehaviour
   }
   private void FixedUpdate()
   {
-    if(direction.x != 0)
+    if(direction.x != 0 && fsm.state != FiniteStateMachine.State.rolling  && fsm.state != FiniteStateMachine.State.attacking)
     {
       Move();
     }

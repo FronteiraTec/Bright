@@ -4,17 +4,14 @@ using UnityEngine;
 
 public class RollController : MonoBehaviour
 {
-  [Header("Roll Movement")]
-  [SerializeField] private float rollMovement = 1.5f;
-  // [SerializeField] public float runSpeed = 5f;
-  // [SerializeField] private float runStaminaCost = 1f;
+  [Range(1f, 50f)] [SerializeField] private float rollMovement;
   
   // private StaminaBar staminaBar;
   private Rigidbody2D rb;
   private CollisionRay ray;
   private FiniteStateMachine fsm;
   private bool onGround;
-  private bool isRolling = false;
+  
   private void Start()
   {
     // staminaBar = GetComponent<StaminaBar>();
@@ -29,13 +26,9 @@ public class RollController : MonoBehaviour
     
     if(onGround)
     {
-      // isRolling = true;
       if(Input.GetKeyDown(KeyCode.LeftControl))
       {
         Roll();
-        // fsm.state = FiniteStateMachine.State.emptyState;
-
-        // isRolling = false;
       }
     }
   }
@@ -44,9 +37,10 @@ public class RollController : MonoBehaviour
   {
     Debug.Log("Roll");
     fsm.state = FiniteStateMachine.State.rolling;
+  }
+  
+  public void RollMove()
+  {
     rb.velocity = new Vector2(rollMovement *  Mathf.Sign(transform.localScale.x), rb.velocity.y);
-    // rb.velocity = new Vector2(0, 0);
-    // fsm.state = FiniteStateMachine.State.emptyState;
-    return;
   }
 }

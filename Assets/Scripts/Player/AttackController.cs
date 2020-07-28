@@ -11,8 +11,10 @@ public class AttackController : MonoBehaviour
   [SerializeField] private int numberOfClicks = 0;
   
   [Header("Weak Attack Parameters")]
-  [Range(0f, 10f)] [SerializeField] private float motionPerAttack = 1f;
+  [Range(1f, 120f)] [SerializeField] private float motionPerAttack = 100f;
   [Range(0f, 100f)] [SerializeField] private float WeakAttackStaminaCost = 0;
+  [SerializeField] private Collider2D AttackHitBox;
+  [SerializeField] private LayerMask hittableLayers;
   
   // [Header("Components")]
   private FiniteStateMachine fsm;
@@ -60,7 +62,8 @@ public class AttackController : MonoBehaviour
   {
     staminaBar.UseStamina(WeakAttackStaminaCost);
     rb.position = new Vector2(rb.position.x + Mathf.Sign(transform.localScale.x) * motionPerAttack, rb.position.y);
-    rb.velocity = new Vector2(0, 0);
+    // rb.velocity = new Vector2(Mathf.Sign(transform.localScale.x) * motionPerAttack, rb.velocity.y);
+    // Debug.Log(Mathf.Sign(transform.localScale.x) * motionPerAttack);
   }
   
   // Used to control if next and/or which animation will be played

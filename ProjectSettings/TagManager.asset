@@ -18,8 +18,8 @@ TagManager:
   - Background
   - Player
   - Props
-  - 
-  - 
+  - Ground
+  - Foreground
   - 
   - 
   - 
@@ -43,6 +43,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 2719126939
+    locked: 0
+  - name: Ground
+    uniqueID: 3592164763
+    locked: 0
   - name: Player
     uniqueID: 2159540611
+    locked: 0
+  - name: Foreground
+    uniqueID: 2825515741
     locked: 0

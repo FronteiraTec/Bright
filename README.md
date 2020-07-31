@@ -2,6 +2,9 @@
 ## Bright <br>
 Um jogo plataforma 2D com temática souls-like.<br>
 
+### Live Demo
+Uma demo jogavel pode ser encontrada em: https://douglaskosvoski.github.io/Bright-WebGl-Build/
+
 #### Setup
 	Unity Version: 2019.3.7f1
 <br>

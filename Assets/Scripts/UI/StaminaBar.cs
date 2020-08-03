@@ -55,11 +55,6 @@ public class StaminaBar : MonoBehaviour
       // return false;
       return true;
     }
-    
-    public void Info()
-    {
-      Debug.Log(("StaminaBar Info = ",maxStamina, regenDelay, regenAmount));
-    }
 
     private IEnumerator RegenStamina()
     {

@@ -10,10 +10,6 @@ public class CollisionRay : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private bool onGround;
 
-    private void Start()
-    {
-        
-    }
 
     private void Update()
     {

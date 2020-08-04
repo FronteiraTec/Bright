@@ -10,11 +10,6 @@ public class AttackHitBox : MonoBehaviour
     {
       collider = GetComponent<BoxCollider2D>();
     }
-
-    private void Update()
-    {
-        
-    }
     
     private void OnTriggerEnter2D(Collider2D collider)
     {

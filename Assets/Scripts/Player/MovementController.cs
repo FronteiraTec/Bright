@@ -8,7 +8,8 @@ public class MovementController : MonoBehaviour
   [SerializeField] public float walkSpeed = 5f;
   [SerializeField] public float runSpeed = 5f;
   [SerializeField] private float runStaminaCost = 1f;
-  
+  [SerializeField] private ParticleSystem dust;
+
   private StaminaBar staminaBar;
   private Rigidbody2D rb;
   private CollisionRay ray;
@@ -16,7 +17,7 @@ public class MovementController : MonoBehaviour
   private FiniteStateMachine fsm;
   private bool facingRight = true;
   private bool onGround;
-  
+
   private void Start()
   {
     staminaBar = GetComponent<StaminaBar>();
@@ -51,6 +52,7 @@ public class MovementController : MonoBehaviour
         {
           if(staminaBar.EnoughStamina() && clicado)
           {
+            dust.Play();
             staminaBar.UseStamina(runStaminaCost);
             rb.velocity = new Vector2(direction.x * runSpeed, rb.velocity.y);
           }

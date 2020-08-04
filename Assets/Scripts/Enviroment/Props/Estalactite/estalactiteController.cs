@@ -68,11 +68,11 @@ public class estalactiteController : MonoBehaviour
   
   void OnCollisionEnter2D(Collision2D collision2D)
   {
-      if(collision2D.transform.name == "Player")
-      {
-        // get player's health bar script and TakeDamage()
-        player = GameObject.Find("Player");
-        player.BroadcastMessage("TakeDamage", damageDealt);
-      }
+    if(collision2D.transform.name == "Player")
+    {
+      // get player's health bar script and TakeDamage()
+      player = GameObject.Find("Player");
+      player.BroadcastMessage("TakeDamage", damageDealt);
+    }
   }
 }

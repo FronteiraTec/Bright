@@ -10,7 +10,6 @@ public class CollisionRay : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private bool onGround;
 
-
     private void Update()
     {
       onGround = Physics2D.Raycast(transform.position + colliderOffset, Vector2.down, rayLenght, groundLayer) || Physics2D.Raycast(transform.position - colliderOffset, Vector2.down, rayLenght, groundLayer);

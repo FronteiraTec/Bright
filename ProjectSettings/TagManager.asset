@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Prop
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Props
   - Ground
   - Foreground
-  - 
+  - Enemies
   - 
   - 
   - 

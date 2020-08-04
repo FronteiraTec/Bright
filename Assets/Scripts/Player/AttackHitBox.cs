@@ -13,7 +13,7 @@ public class AttackHitBox : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collider)
     {
-      if(collider.gameObject.tag == "Prop")
+      if(collider.gameObject.tag == "Prop" || collider.gameObject.tag == "Enemy")
       {
         collider.gameObject.BroadcastMessage("TakeDamage");
       }
